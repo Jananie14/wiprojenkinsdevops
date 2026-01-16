@@ -1,4 +1,8 @@
-from tomcat:8.0
-RUN cd /usr/local/tomcat/webapps && rm -rf *
-RUN copy ROOT.war /usr/local/tomcat/webapps
-CMD ["cataline.sh","run"]
+FROM tomcat:8.0
+
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+COPY ROOT.war /usr/local/tomcat/webapps/
+
+CMD ["catalina.sh", "run"]
+
